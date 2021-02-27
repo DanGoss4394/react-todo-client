@@ -37,6 +37,50 @@ class App extends Component {
       });
   };
 
+  handleDelete = (id) => {
+    axios({
+      method: "DELETE",
+      url: `http://localhost:5000/api/delete-todo/${id}`,
+    })
+      .then((res) => {
+        this.setState({
+          todos: this.state.todos.filter((todo) => {
+            return todo.id !== id;
+          }),
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  renderTodos = () => {
+    return this.state.todos.map((todo) => {
+      return (
+        <div key={todo.id} className="todo-item">
+          <input type="checkbox" defaultChecked="" />
+          <p>{todo.title}</p>
+          <button onClick={() => this.handleDelete(todo.id)}>X</button>
+        </div>
+      );
+    });
+  };
+
+  componentDidMount() {
+    axios({
+      method: "GET",
+      url: "http://localhost:5000/api/get-all-todos",
+    })
+      .then((res) => {
+        this.setState({
+          todos: res.data,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
   render() {
     return (
       <div className="app">
@@ -50,6 +94,7 @@ class App extends Component {
           />
           <button type="submit">Add</button>
         </form>
+        {this.renderTodos()}
       </div>
     );
   }
