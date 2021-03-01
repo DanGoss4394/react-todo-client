@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import TodoItem from "./components/TodoItems";
 
 class App extends Component {
   constructor(props) {
@@ -56,12 +57,9 @@ class App extends Component {
 
   renderTodos = () => {
     return this.state.todos.map((todo) => {
+      console.log(todo);
       return (
-        <div key={todo.id} className="todo-item">
-          <input type="checkbox" defaultChecked="" />
-          <p>{todo.title}</p>
-          <button onClick={() => this.handleDelete(todo.id)}>X</button>
-        </div>
+        <TodoItem key={todo.id} todo={todo} handleDelete={this.handleDelete} />
       );
     });
   };
