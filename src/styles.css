@@ -20,7 +20,8 @@
   width: 60%;
   padding-bottom: 60px;
 }
-.add-todo input, button {
+.add-todo input,
+button {
   border-radius: 10px;
   outline: none;
   border: none;
@@ -33,4 +34,10 @@
 .done {
   color: black;
   text-decoration: line-through;
+}
+
+/* Spinners */
+.main-spinner {
+  font-size: 2rem;
+  margin-top: 1.75em;
 }
