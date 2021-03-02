@@ -22,7 +22,7 @@ class App extends Component {
     e.preventDefault();
     axios({
       method: "POST",
-      url: "https://dg-flask-todo-api.herokuapp.com/api/add-todo",
+      url: `${API_URL}/add-todo`,
       data: {
         title: this.state.title,
         done: false,
@@ -42,7 +42,7 @@ class App extends Component {
   handleDelete = (id) => {
     axios({
       method: "DELETE",
-      url: `https://dg-flask-todo-api.herokuapp.com/api/delete-todo/${id}`,
+      url: `${API_URL}/delete-todo/${id}`,
     })
       .then((res) => {
         this.setState({
@@ -58,7 +58,6 @@ class App extends Component {
 
   renderTodos = () => {
     return this.state.todos.map((todo) => {
-      console.log(todo);
       return (
         <TodoItem key={todo.id} todo={todo} handleDelete={this.handleDelete} />
       );

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { API_URL } from "../api/api";
 
 class TodoItem extends Component {
   constructor(props) {
@@ -9,7 +10,7 @@ class TodoItem extends Component {
   }
 
   handleDone = () => {
-    fetch(`https://dg-flask-todo-api.herokuapp.com/api/edit-done/${this.props.todo.id}`, {
+    fetch(`${API_URL}/edit-done/${this.props.todo.id}`, {
       method: "PATCH",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({
@@ -36,7 +37,7 @@ class TodoItem extends Component {
           onClick={this.handleDone}
         />
         <p className={this.state.done ? "done" : null}>{title}</p>
-        <button onClick={() => this.props.handleDelete(id)}>X</button>
+        <button onClick={() => handleDelete(id)}>X</button>
       </div>
     );
   }
