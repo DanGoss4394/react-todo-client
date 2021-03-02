@@ -13,6 +13,7 @@ class App extends Component {
       title: "",
       todos: [],
       isLoading: true,
+      isSubmitting: false,
     };
   }
 
@@ -23,6 +24,9 @@ class App extends Component {
   };
 
   handleSubmit = (e) => {
+    this.setState({
+      isSubmitting: true,
+    });
     e.preventDefault();
     axios({
       method: "POST",
@@ -36,10 +40,14 @@ class App extends Component {
         this.setState({
           todos: [res.data, ...this.state.todos],
           title: "",
+          isSubmitting: false,
         });
       })
       .catch((err) => {
         console.log(err);
+        this.setState({
+          isSubmitting: false,
+        });
       });
   };
 
@@ -91,14 +99,19 @@ class App extends Component {
 
         <form className="add-todo" onSubmit={this.handleSubmit}>
           <input
+            required
             type="text"
             placeholder="Add ToDo"
             onChange={this.handleChange}
             value={this.state.title}
           />
-          <button type="submit">Add</button>
+          <button disabled={this.state.isSubmitting} type="submit">
+            Add
+          </button>
         </form>
-        {this.state.isLoading && <FontAwesomeIcon icon={faSpinner} spin className="main-spinner" />}
+        {this.state.isLoading && (
+          <FontAwesomeIcon icon={faSpinner} spin className="main-spinner" />
+        )}
         {this.renderTodos()}
       </div>
     );
