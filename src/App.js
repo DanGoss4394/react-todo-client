@@ -109,12 +109,10 @@ class App extends Component {
             onChange={this.handleChange}
             value={this.state.title}
           />
-          <div className="todo-btn">
-            <button disabled={this.state.isSubmitting} type="submit">
+            <button disabled={this.state.isSubmitting} type="submit" className="todo-btn">
               {/* <button {onSubmit === isLoading ? {faSpinner} : disabled={isSubmitting}} type="submit"> */}
               Add
             </button>
-          </div>
         </form>
         {this.state.isLoading && (
           <FontAwesomeIcon icon={faSpinner} spin className="main-spinner" />
