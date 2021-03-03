@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSpinner } from "@fortawesome/free-solid-svg-icons";
+import { faSpinner,  faTrash } from "@fortawesome/free-solid-svg-icons";
 
 import TodoItem from "./components/TodoItems";
 import { API_URL } from "./api/api";
+
+
 
 class App extends Component {
   constructor(props) {
@@ -106,6 +108,7 @@ class App extends Component {
             value={this.state.title}
           />
           <button disabled={this.state.isSubmitting} type="submit">
+            {/* <button {onSubmit === isLoading ? {faSpinner} : disabled={isSubmitting}} type="submit"> */}
             Add
           </button>
         </form>

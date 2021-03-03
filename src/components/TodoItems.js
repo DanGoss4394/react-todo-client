@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { API_URL } from "../api/api";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 class TodoItem extends Component {
   constructor(props) {
     super(props);
@@ -32,12 +34,15 @@ class TodoItem extends Component {
     return (
       <div className="todo-item">
         <input
+          className="check-box"
           type="checkbox"
           defaultChecked={this.state.done}
           onClick={this.handleDone}
         />
         <p className={this.state.done ? "done" : null}>{title}</p>
-        <button onClick={() => handleDelete(id)}>X</button>
+        <button onClick={() => handleDelete(id)} className="btn">
+          <FontAwesomeIcon icon="trash" />
+        </button>
       </div>
     );
   }

@@ -28,9 +28,19 @@ button {
 }
 .todo-item {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   width: 80%;
 }
+
+.check-box {
+
+}
+
+.btn {
+  background-color: red;
+}
+
 .done {
   color: black;
   text-decoration: line-through;
