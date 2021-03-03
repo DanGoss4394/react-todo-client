@@ -40,9 +40,7 @@ class TodoItem extends Component {
           onClick={this.handleDone}
         />
         <p className={this.state.done ? "done" : null}>{title}</p>
-        <button onClick={() => handleDelete(id)} className="btn">
-          <FontAwesomeIcon icon="trash" />
-        </button>
+          <FontAwesomeIcon icon="trash" onClick={() => handleDelete(id)} className="btn" />
       </div>
     );
   }
