@@ -13,6 +13,7 @@
   width: 400px;
   box-shadow: 5px 5px 5px #999;
 }
+
 .add-todo {
   display: flex;
   justify-content: space-evenly;
@@ -20,6 +21,21 @@
   width: 60%;
   padding-bottom: 60px;
 }
+
+.add-todo-input {
+  height: 22px;
+}
+
+.todo-btn {
+  background-color: green;
+  width: 50px;
+  font-weight: bolder;
+}
+
+.todo-btn :hover {
+  background-color: #00cb78;
+}
+
 .add-todo input,
 button {
   border-radius: 10px;
