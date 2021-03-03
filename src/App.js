@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSpinner,  faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faSpinner, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 import TodoItem from "./components/TodoItems";
 import { API_URL } from "./api/api";
 
-
+library.add(faTrash, faSpinner);
 
 class App extends Component {
   constructor(props) {
